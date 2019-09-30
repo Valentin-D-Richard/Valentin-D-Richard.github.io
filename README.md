@@ -1,5 +1,5 @@
 # Valentin D. Richard
-![photo-VR-2018](/VR-prof-2018.jpg)
+![photo-VR-2018](/VR-prof-2018-small.jpg)
 
 I am a computational linguistic student. I have strong basics in computer science (logic, grammar and general algebra in ENS Paris-Saclay) and some knowledge in linguistics. I did internships at the syntax-semantics interface. But I am also curious about the phono-syntax interface.
 
