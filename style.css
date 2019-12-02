@@ -1,0 +1,56 @@
+body{
+    background-color: #EEEEEE;
+    font-family: Helvetica, Arial/* in case it does not work*/, sans-serif;
+}
+
+a { /* class specification */
+    text-decoration: none; /* no link blue underlining */
+    color: #1D8677;
+}
+
+h1, h2, h3 {
+    margin:0;
+}
+
+#container{
+    background-color: white;
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#header{
+    background-color: #1D8677;
+    color: white;
+    text-align: center;
+}
+#header #nav ul{
+    list-style-type: none;
+    color: #802769;
+}
+
+#content{
+    padding: 5px; /* or top right bottom left */
+}
+
+#new{
+    width: 280px;
+    float: right;
+    padding: 5px;
+}
+#news ul{
+    /* list-style-type: none; no bullet point
+    padding: 5; */
+}
+
+#main{
+    width: 690px;
+    float: left;
+    padding: 5px;
+}
+
+#footer{
+    clear: both; /* clear of any floating element */
+    text-align: right;
+}
+    
