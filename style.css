@@ -29,6 +29,28 @@ h2{
     padding: 5px 0px 1px 0px;
 }
 
+#language{
+    text-align:right;
+    padding: 0px 5px;
+}
+
+.btn {
+    border: none;
+    outline: none;
+    padding: 0px;
+    background-color: #1D8677;
+    cursor: pointer;
+    color: black;
+}
+
+.btn:hover {
+    color: #802769;
+}
+
+.btn.active {
+    text-decoration: underline;
+}
+
 #header li{
     display: inline-block;
     list-style-type: none;
@@ -56,17 +78,34 @@ h2{
 #new{
     max-width: 180px;
     float: right;
-    padding: 5px;
 }
 #news li{
     list-style-position: inside;
 }
+#news h1 {
+    text-align: center;
+    color: #802769;
+}
 
 #main{
+    padding: 5px;
+}
+#main h1 {
+    text-align: center;
+    color: #1D8677;
+}
+
+#main-home{
     max-width: 790px;
     float: left;
     padding: 5px;
 }
+
+#cv{
+    text-align: center;
+    padding: 5px;
+}
+    
 
 #profile-picture{
     float: left;
