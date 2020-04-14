@@ -51,6 +51,14 @@ h2{
     text-decoration: underline;
 }
 
+.lang {
+    display: none;
+}
+    
+.show {
+  display: block;
+}
+
 #header li{
     display: inline-block;
     list-style-type: none;
