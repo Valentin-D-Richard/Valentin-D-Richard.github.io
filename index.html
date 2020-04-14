@@ -9,22 +9,32 @@
   <body>
     <div id="container">
       <div id="header">
-	<!--
 	<div id="language">
 	  <button class="btn" onclick="filterSelection('fr')"><b>fr</b></button>
 	  <b style="color: black">·</b>
 	  <button class="btn active" onclick="filterSelection('en')"><b>en</b></button>
 	</div>
-	-->
 	<h1>Valentin D. Richard</h1>
 	<em class="lang en">Researcher in computational linguistics</em>
-	<!---<em class="lang fr">Chercheur en linguistique informatique</em>--->
+	<em class="lang fr">Chercheur en linguistique informatique</em>
+	
 	<div id="nav">
-	  <ul>
-	    <li class="active"><a href="index.html">Home</a></li>
-	    <li><a href="Research/index.html">Research output</a></li>
-	    <li><a href="Voluntary/index.html">Voluntary</a></li>
-	  </ul>
+	  <div "lang en">
+	    <ul>
+	      <li class="active">
+		<a href="index.html" class="lang en">Home</a>
+		<a href="index.html" class="lang fr">Accueil</a>
+	      </li>
+	      <li>
+		<a href="Research/index.html" class="lang en">Research output</a>
+		<a href="Research/index.html" class="lang fr">Travaux de recherche</a>
+	      </li>
+	      <li>
+		<a href="Voluntary/index.html" class="lang en">Voluntary</a>
+		<a href="Voluntary/index.html" class="lang fr">Associatif</a>
+	      </li>
+	    </ul>
+	  </div>
 	</div>
       </div>
 
@@ -34,50 +44,92 @@
 	  <div id="profile-picture">
 	    <img src="VR-prof-2018.jpg" alt="photo-VR-2018" title="photo-VR-2018" width="200"/>
 	  </div>
+	  
+	  <p class="lang en">
+	    <b>First name: </b>Valentin</br>
+	    <b>Familly name: </b>Richard</br>
+	    <b>Contact: </b><em>valentin.richard</em> at <em>ens-paris-saclay</em> dot <em> fr</em></br>
+	    <a href="CV_Valentin_D_Richard_en.pdf" target="_blank"><b><u>My CV</u></b></a>
+	  </p>
+	  <p class="lang fr">
+	    <b>Prénom : </b>Valentin</br>
+	    <b>Nom de famille : </b>Richard</br>
+	    <b>Contact : </b><em>valentin.richard</em> at <em>ens-paris-saclay</em> dot <em> fr</em></br>
+	    <a href="CV_Valentin_D_Richard_fr.pdf" target="_blank"><b><u>Mon CV</u></b></a>
+	  </p>
+	  
 	  <div id="introduction-text">
-	    <p>I am a French master student in computer science at <a href="https://ens-paris-saclay.fr" target="_blank">ENS Paris-Saclay</a> (<a href="https://wikimpri.dptinfo.ens-cachan.fr/doku.php?id=start" target="_blank">MPRI</a>). I also took some linguistics courses at different universities. As a computational linguist, I am specialized in the formal study of natural language models, espacially for syntax and the syntax-semantics interface (e.g. categorial grammars).</p>
-	    <div id="cv">
-	      <p><a href="CV_Valentin_D_Richard_en.pdf" target="_blank"><h1>My CV</h1></a></p>
-	    </div>
-	    <h2>Contact</h2>
-	    <p><em>valentin.richard</em> at <em>ens-paris-saclay</em> dot <em> fr</em></p>
+	    <p class="lang en">I am a French master student in computer science at <a href="https://ens-paris-saclay.fr" target="_blank">ENS Paris-Saclay</a> (<a href="https://wikimpri.dptinfo.ens-cachan.fr/doku.php?id=start" target="_blank">MPRI</a>). I also took some linguistics courses at different universities. As a computational linguist, I am specialized in the study of natural language formel models, espacially for syntax and the syntax-semantics interface (e.g. categorial grammars).</p>
+	    <p class="lang fr">Je suis étudiant en master d'informatique à l'<a href="https://ens-paris-saclay.fr" target="_blank">ENS Paris-Saclay</a> (<a href="https://wikimpri.dptinfo.ens-cachan.fr/doku.php?id=start" target="_blank">MPRI</a>). J'ai aussi suivi des cours de linguistique dans différentes unversités. En tant que linguiste informaticien, je suis spécialisé dans l'étude des modèles formels du language, notamment en syntaxe et à l'interface syntaxe-sémantique (ex. grammaires catégorielles).</p>
 	  </div>
+	    
 	  <div id="info">
-	    <h2>Research interests</h2>
-	    <ul>
-	      <li>Natural Language Syntax</li>
-	      <li>Grammars</li>
-	      <li>Logic</li>
-	      <li>Category theory</li>
-	    </ul>
-	    <h2>How to pronounce my name</h2>
-	    <ul>
-	      <li>English equivalent "Valentine" /&#712;v&aelig;l&#601;nta&#618;n &#712;rit&#643;&#601;<sup>r</sup>d/</li>
-	      <li>French exact pronounciation [val&#594;&#771;&#712;t&#810;&aelig;&#771;],  [val&#594;&#771;t&aelig;&#771; &#641;i&#712;&#643;a&#720;&#641;]</li>
-	    </ul>
-	    <h2>Some links</h2>
-	    <ul>
-	      <li><a href="https://orcid.org/0000-0002-9236-8106" title="ORCHID Valentin D. Richard" target="_blank">ORCID</a></li>
-	      <li><a href="https://www.researchgate.net/profile/Valentin_Richard" title="ResearchGate Valentin D. Richard" target="_blank">ResearchGate</a></li>
-	      <li><a href="https://pagesperso-orange.academia.edu/ValentinDRichard" title="Academia Valentin D. Richard" target="_blank">Academia</a></li>
-	      <li><a href="https://www.linkedin.com/in/valentin-d-richard-9a92657b/" title="LinkedIn Valentin D. Richard" target="_blank">LinkedIn</a></li>
-	    </ul>
+	    <div class="lang en">
+	      <h2>Research interests</h2>
+	      <ul>
+		<li>Natural Language Syntax</li>
+		<li>Grammars</li>
+		<li>Logic</li>
+		<li>Category theory</li>
+	      </ul>
+	    </div>
+	    <div class="lang fr">
+	      <h2>Intérêts de recherche</h2>
+	      <ul>
+		<li>Syntaxe des langues</li>
+		<li>Grammaires</li>
+		<li>Logique</li>
+		<li>Théorie des catégories</li>
+	      </ul>
+	    </div>
+	    
+	    <div class="lang en">
+	      <h2>How to pronounce my name</h2>
+	      <ul>
+		<li>English equivalent "Valentine" /&#712;v&aelig;l&#601;nta&#618;n &#712;rit&#643;&#601;<sup>r</sup>d/</li>
+		<li>French exact pronounciation [val&#594;&#771;&#712;t&#810;&aelig;&#771;],  [val&#594;&#771;t&aelig;&#771; &#641;i&#712;&#643;a&#720;&#641;]</li>
+	      </ul>
+	    </div>
+	    
+	    <div class="lang en">
+	      <h2>Some links</h2>
+	      <ul>
+		<li><a href="https://orcid.org/0000-0002-9236-8106" title="ORCHID Valentin D. Richard" target="_blank">ORCID</a></li>
+		<li><a href="https://www.researchgate.net/profile/Valentin_Richard" title="ResearchGate Valentin D. Richard" target="_blank">ResearchGate</a></li>
+		<li><a href="https://pagesperso-orange.academia.edu/ValentinDRichard" title="Academia Valentin D. Richard" target="_blank">Academia</a></li>
+		<li><a href="https://www.linkedin.com/in/valentin-d-richard-9a92657b/?locale=en_US" title="LinkedIn Valentin D. Richard" target="_blank">LinkedIn</a></li>
+	      </ul>
+	    </div>
+	    <div class="lang fr">
+	      <h2>Quelques liens</h2>
+	      <ul>
+		<li><a href="https://orcid.org/0000-0002-9236-8106" title="ORCHID Valentin D. Richard" target="_blank">ORCID</a></li>
+		<li><a href="https://www.researchgate.net/profile/Valentin_Richard" title="ResearchGate Valentin D. Richard" target="_blank">ResearchGate</a></li>
+		<li><a href="https://pagesperso-orange.academia.edu/ValentinDRichard" title="Academia Valentin D. Richard" target="_blank">Academia</a></li>
+		<li><a href="https://www.linkedin.com/in/valentin-d-richard-9a92657b/" title="LinkedIn Valentin D. Richard" target="_blank">LinkedIn</a></li>
+	      </ul>
+	    </div>
+
+	    
 	  </div>
 	</div>
 	
 	<div id="news">
-	  <h1>News</h1>
+	  <h1 class="lang en">News</h1>
+	  <h1 class="lang fr">Infos récentes</h1>
 	  <ul>
-	    <li><b>October 2019 - August 2020:</b> Internship at Utrecht Institute of Linguistics OTS, Utrecht Universiteit under the supervision of <a href="https://www.uu.nl/staff/MJMoortgat" target="_blank">Michael Moortgat</a> and <a href="https://www.uu.nl/staff/GGreco" target="_blank">Giuseppe Greco</a> on <em>Non-collapsing Semantics for Extended Lambek Calculus</em>.</li>
+	    <li class="lang en"><b>October 2019 - August 2020:</b> Internship at Utrecht Institute of Linguistics OTS, Utrecht Universiteit under the supervision of <a href="https://www.uu.nl/staff/MJMoortgat" target="_blank">Michael Moortgat</a> and <a href="https://www.uu.nl/staff/GGreco" target="_blank">Giuseppe Greco</a> on <em>Non-collapsing Semantics for Extended Lambek Calculus</em>.</li>
+	    <li class="lang fr"><b>Octobre 2019 - Aout 2020:</b> Stage à Utrecht Institute of Linguistics OTS, Utrecht Universiteit, encadré par <a href="https://www.uu.nl/staff/MJMoortgat" target="_blank">Michael Moortgat</a> et <a href="https://www.uu.nl/staff/GGreco" target="_blank">Giuseppe Greco</a> sur : <em>Sémantique non effondrante pour le Calcul de Lambek étendu</em>.</li>
 	  </ul>
 	</div>
       </div>
-
+      
       
       <div id="footer">
 	Valentin D. Richard
 	<img src="logo-VR.png" alt="logo-VR-2019" title="logo-VR-2019" width="200"/>
       </div>
     </div>
+    <script src="script.js"></script>
   </body>
 </html>
