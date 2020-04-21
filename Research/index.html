@@ -9,13 +9,28 @@
   <body>
     <div id="container">
       <div id="header">
+	<div id="language">
+	  <button class="btn fr" onclick="filterSelection('fr')"><b>fr</b></button>
+	  <b style="color: black">·</b>
+	  <button class="btn active" onclick="filterSelection('en')"><b>en</b></button>
+	</div>
 	<h1>Valentin D. Richard</h1>
-	<em>Researcher in computational linguistics</em>
+	<em class="lang en">Researcher in computational linguistics</em>
+	<em class="lang fr">Chercheur en linguistique informatique</em>
 	<div id="nav">
 	  <ul>
-	    <li><a href="../index.html">Home</a></li>
-	    <li class="active"><a href="index.html">Research output</a></li>
-	    <li><a href="../Voluntary/index.html">Voluntary</a></li>
+	    <li>
+	      <a href="../index.html?en" class="lang en">Home</a>
+	      <a href="../index.html?fr" class="lang fr">Accueil</a>
+	    </li>
+	    <li class="active">
+	      <a href="index.html?en" class="lang en">Research output</a>
+	      <a href="index.html?fr" class="lang fr">Travaux de recherche</a>
+	    </li>
+	    <li>
+	      <a href="../Voluntary/index.html?en" class="lang en">Voluntary</a>
+	      <a href="../Voluntary/index.html?fr" class="lang fr">Associatif</a>
+	    </li>
 	  </ul>
 	</div>
       </div>
@@ -23,7 +38,8 @@
       
       <div id="content">
 	<div id="main">
-	  <h1>Papers related to my research career</h1>
+	  <h1 class="lang en">Papers related to my research career</h1>
+	  <h1 class="lang fr">Papiers liés à ma carrière académique</h1>
 	  <h2>2019</h2>
 	  <ul>
 	    <li>Richard, V.D. (2019).
@@ -69,5 +85,6 @@
 	<img src="../logo-VR.png" alt="logo-VR-2019" title="logo-VR-2019" width="200"/>
       </div>
     </div>
+    <script src="../script.js"></script>
   </body>
 </html>
