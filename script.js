@@ -1,5 +1,19 @@
-<!--- Language selection --->
-filterSelection("en")
+// Language selection
+var url = document.URL.split('?');
+if (url.lenght == 1) {
+    filterSelection("en");
+} else {
+    if (url[1] == "fr") {
+	filterSelection("fr");
+	var current = document.getElementsByClassName("active");
+	current[0].className = current[0].className.replace(" active", "");
+	var btnFr = document.getElementsByClassName("btn fr")[0];
+	btnFr.className += " active";
+    } else {
+	filterSelection("en");
+    }
+}
+
 function filterSelection(c) {
   var x, i;
   x = document.getElementsByClassName("lang");
