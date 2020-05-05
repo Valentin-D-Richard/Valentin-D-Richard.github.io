@@ -5,7 +5,7 @@ body{
 
 a { /* class specification */
     text-decoration: none; /* no link blue underlining */
-    color: #1D8677;
+    color: #006478;
 }
 
 h1, h2, h3 {
@@ -23,7 +23,7 @@ h2{
 }
 
 #header{
-    background-color: #1D8677;
+    background-color: #006478;
     color: white;
     text-align: center;
     padding: 5px 0px 1px 0px;
@@ -38,7 +38,7 @@ h2{
     border: none;
     outline: none;
     padding: 0px;
-    background-color: #1D8677;
+    background-color: #006478;
     cursor: pointer;
     color: black;
 }
@@ -100,7 +100,7 @@ h2{
 }
 #main h1 {
     text-align: center;
-    color: #1D8677;
+    color: #006478;
 }
 
 #main-home{
