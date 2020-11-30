@@ -1,13 +1,132 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr" dir="ltr">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Castor -- Découpe</title>
-    <link rel="stylesheet" type="text/css" href="../style.css">
-    <link rel="shortcut icon" type="../image/png" href="logo-V.png">
+    <link rel="stylesheet" href="index.css">
+    <meta charset="utf-8">
+    <title>Enclos</title>
   </head>
   <body>
-    
+
+    <h2 id="titre">Construis des enclos jusqu'à ce qu'il n'y ait qu'un seul type d'animal par enclos (cochon, vache ou mouton).</h2>
+
+    <div id="panel">
+      <div id="panel-gauche">
+	<div id="grid-container">
+	  <div id="grid">
+	    <div class="case 11"></div>
+	    <div class="case 21"></div>
+	    <div class="case 31"></div>
+	    <div class="case 41"></div>
+	    <div class="case 51"></div>
+	    <div class="case 61"></div>
+	    <div class="case 71"></div>
+	    <div class="case 81"></div>
+	    <div class="case 91"></div>
+	    
+	    <div class="case 12"></div>
+	    <div class="case 22"></div>
+	    <div class="case 32"></div>
+	    <div class="case 42"></div>
+	    <div class="case 52"></div>
+	    <div class="case 62"></div>
+	    <div class="case 72"></div>
+	    <div class="case 82"></div>
+	    <div class="case 92"></div>
+	    
+	    <div class="case 13"></div>
+	    <div class="case 23"></div>
+	    <div class="case 33"></div>
+	    <div class="case 43"></div>
+	    <div class="case 53"></div>
+	    <div class="case 63"></div>
+	    <div class="case 73"></div>
+	    <div class="case 83"></div>
+	    <div class="case 93"></div>
+	    
+	    <div class="case 14"></div>
+	    <div class="case 24"></div>
+	    <div class="case 34"></div>
+	    <div class="case 44"></div>
+	    <div class="case 54"></div>
+	    <div class="case 64"></div>
+	    <div class="case 74"></div>
+	    <div class="case 84"></div>
+	    <div class="case 94"></div>
+	    
+	    <div class="case 15"></div>
+	    <div class="case 25"></div>
+	    <div class="case 35"></div>
+	    <div class="case 45"></div>
+	    <div class="case 55"></div>
+	    <div class="case 65"></div>
+	    <div class="case 75"></div>
+	    <div class="case 85"></div>
+	    <div class="case 95"></div>
+	    
+	    <div class="case 16"></div>
+	    <div class="case 26"></div>
+	    <div class="case 36"></div>
+	    <div class="case 46"></div>
+	    <div class="case 56"></div>
+	    <div class="case 66"></div>
+	    <div class="case 76"></div>
+	    <div class="case 86"></div>
+	    <div class="case 96"></div>
+	    
+	    <div class="case 17"></div>
+	    <div class="case 27"></div>
+	    <div class="case 37"></div>
+	    <div class="case 47"></div>
+	    <div class="case 57"></div>
+	    <div class="case 67"></div>
+	    <div class="case 77"></div>
+	    <div class="case 87"></div>
+	    <div class="case 97"></div>
+	   
+	    <div class="case 18"></div>
+	    <div class="case 28"></div>
+	    <div class="case 38"></div>
+	    <div class="case 48"></div>
+	    <div class="case 58"></div>
+	    <div class="case 68"></div>
+	    <div class="case 78"></div>
+	    <div class="case 88"></div>
+	    <div class="case 98"></div>
+	    
+	    <div class="case 19"></div>
+	    <div class="case 29"></div>
+	    <div class="case 39"></div>
+	    <div class="case 49"></div>
+	    <div class="case 59"></div>
+	    <div class="case 69"></div>
+	    <div class="case 79"></div>
+	    <div class="case 89"></div>
+	    <div class="case 99"></div>
+	  </div>
+	</div>
+	<div id="nb-enclos">Nombre maximal d'enclos autorisés : <b>[11]</b></div>
+      </div>
+      <div id="panel-droite">
+	<ul>
+	  <li><b>(1)</b> Sélectionne un enclos où il y a un animal</li>
+	  <li><b>(2)</b> Sélectionne un plan de construction (horizontal ou vertical)</li>
+	  <li><b>(3)</b> Ensuite, appuie sur "Construire les enclos"</li>
+	</ul>
+	<div id="decoupe">
+	  <input type="radio" id="horizontal" name="direction" >
+	  <label >Horizontal</label><br>
+	  <input type="radio" id="vertical" name="direction" >
+	  <label >Vertical</label><br>
+	</div>
+	<div id="valider">
+	  <button onclick="buildFence()" >Construire les enclos</button><br>
+	</div>
+	<div id="erreurs">
+	</div><br>
+
+	<button onclick="validate()" >Valider</button>
+	<button onclick="reset()" >Réinitialiser</button>
+    </div>
   </body>
+  <script src="index.js"></script>
 </html>
