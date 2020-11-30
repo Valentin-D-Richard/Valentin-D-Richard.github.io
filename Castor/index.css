@@ -1,0 +1,94 @@
+.title {
+    display: none;
+}
+
+#titre {
+    max-width: 600px;
+    text-align: center;
+}
+
+/* -------- Panel gauche -----------*/
+
+#panel-gauche {
+    min-width: 210px;
+    float: left;
+    padding: 5px;
+}
+
+#grid {
+    display: grid;
+    grid-template-columns: repeat(9, 30px);
+    grid-template-rows: repeat(9, 30px);
+    grid-gap: 0px;
+    background-color: #FFFFFF;
+    border: 2px solid black;
+    padding: 0px;
+}
+
+#grid > div {
+    /*border: 1px solid black;  */
+    padding: 0px
+}
+/*
+#grid > div:hover {
+    background-color: #A6F4FF;
+}
+*/
+.borders {
+    border: 1px solid black;
+}
+
+.brownbackground {
+    background-color: #DE9967;
+}
+.bluebackground {
+    background-color: #A6F4FF;
+}
+
+/* --------- Panel Droite ---------- */
+
+#panel-droite {
+    float: left;
+    max-width: 330px;
+    padding: 5px;
+}
+
+#panel-droite ul {
+    padding: 0px;
+    margin: 5px 0px;
+    border-left: 5px solid blue;
+}
+
+#panel-droite li {
+    list-style-type: none;
+    list-style-position: inside;
+    padding: 0px 5px;
+}
+
+
+#decoupe {
+    width: 100px;
+    margin: 0px;
+}
+
+#valider {
+    padding: 5px;
+}
+
+#erreurs {
+    min-height: 50px;
+    padding: 5px;
+}
+
+.pad5 {
+    padding: 5px;
+}
+
+.demarquage {
+    border: 2px solid red;
+    border-radius: 5px;
+    padding: 3px;
+}
+
+
+
