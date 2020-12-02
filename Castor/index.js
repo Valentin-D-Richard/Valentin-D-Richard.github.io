@@ -4,6 +4,9 @@ var decoupe    = document.getElementById("decoupe");
 var grid_cont  = document.getElementById("grid-container");
 var grid_cases = document.getElementsByClassName("case");
 
+var modal = document.getElementById("congrat"); // congratulation box
+var span = document.getElementById("congrat-close");
+
 /* --------- Fonctions de base ------------ */
 
 function chars_to_list(chars) {
@@ -67,7 +70,13 @@ function select_case_chars_of_zone_from_case(zone,k) {
     // the case the element is in no leave should never happen if zone = root
 }
     
-       
+function fr(an) {
+    var fr = "";
+    if (an == "pig") {fr = "cochon"}
+    else if (an == "cow") {fr = "vache"}
+    else {fr = "mouton"}
+    return fr;
+}
 
 /* --------- Fonctions dde modification CSS --------- */
 
@@ -100,6 +109,63 @@ function unshow_case(k) {
     k.classList.remove("bluebackground");
 }
 
+function place_point(p) {
+    var chars = list_to_chars([p.x,p.y]);
+    var k = document.getElementsByClassName("case ".concat(chars))[0];
+    var source = "src=\"".concat(p.label).concat(".png\" ");
+    var alt = "alt=\"".concat(fr(p.label)).concat("\" ");
+    var clas = "class=\"animal\">";
+    k.innerHTML = "<img ".concat(source).concat(alt).concat(clas);
+}
+
+function update_nb_zones(n) {
+    var nb_zones_text = document.getElementById("nb-zones");
+    nb_zones_text.innerHTML = n.toString();
+}
+
+function erase_border(k) {
+    k.classList.remove("border1-left"); k.classList.remove("border1-right");
+    k.classList.remove("border1-top"); k.classList.remove("border1-bottom");
+    k.classList.add("pad1-left"); k.classList.add("pad1-right");
+    k.classList.add("pad1-top"); k.classList.add("pad1-bottom");
+}
+
+function draw_border(k, lims, x, y) {
+    // draw the borders of case k depending whether k of coordinates (x,y)
+    // (x absciss, y reversed ordinate) lies on the side(s)
+    // of the zone (given by its limits lims = [xmin, xmax, ymin, ymax]) 
+    // NOTE: the limits are such that xmin < x <= xmax and similar for y
+    if (lims[0] + 1 == x) {
+	k.classList.remove("pad1-left");
+	k.classList.add("border1-left");
+    }
+    if (lims[1] == x) {
+	k.classList.remove("pad1-right");
+	k.classList.add("border1-right");
+    }
+    if (lims[2] + 1 == y) {
+	k.classList.remove("pad1-top");
+	k.classList.add("border1-top");
+    }
+    if (lims[3] == y) {
+	k.classList.remove("pad1-bottom");
+	k.classList.add("border1-bottom");
+    }
+}
+    
+function trace_borders(z) {
+    // draws the borders (fences) of the leaf zones of z
+    var leaves = z.leaves();
+    leaves.forEach(function (z2,i,a) {
+	var lims = limits(z2);
+	var case_chars = limits_to_case_chars(lims);
+	for (var j = 0; j < case_chars.length; j++) {
+	    var k = chars_to_case(case_chars[j]);
+	    var l = chars_to_list(case_chars[j]); // l = [x,y]
+	    draw_border(k, lims, l[0], l[1]);
+	}
+    });
+}
 
 /* ------------- Module de gestion du problème ------------ */
 
@@ -148,7 +214,7 @@ Zone.prototype.split = function (direction, n_slice=3) {
     } else {
 	for (var i = 0; i < n_slice; i++) {
 	    if (direction == "horizontal") {
-		if (this.h_depth == max_depth) {
+		if (this.h_depth + 1 == max_depth) {
 		    throw "Cannot split more horizontally";
 		} else {
 		    var xmin = this.xmin + (this.xmax-this.xmin)*(i/n_slice);
@@ -162,7 +228,7 @@ Zone.prototype.split = function (direction, n_slice=3) {
 		    var c = new Zone(points, this, [xmin, xmax, this.ymin, this.ymax], this.h_depth+1, this.v_depth);
 		}
 	    } else if (direction == "vertical") {
-		if (this.v_depth == max_depth) {
+		if (this.v_depth + 1 == max_depth) {
 		    throw "Cannot split more vertically";
 		} else {
 		    var ymin = this.ymin + (this.ymax-this.ymin)*(i/n_slice);
@@ -275,11 +341,18 @@ alert(root.check());
 
 /* ----------- Variables  globales du problème -------- */
 
-initial_points = [];
+let MAX_NB_ZONES = 7;
+let BEST_NB_ZONES = 5;
+
+var initial_points = [new Point(1,1,"sheep"), new Point(4,2,"pig"),
+		      new Point(5,2,"cow"), new Point(6,3,"sheep"),
+		      new Point(8,3,"pig"), new Point(3,6,"sheep"),
+		      new Point(9,6,"pig"), new Point(4,8,"pig")];
+		  
 var root = new Zone(initial_points);
-var children = root.split("vertical");
 
 var selected_zone = null;
+var nb_zones = 1;
 
 /* ------------ Module d'interface et actions ------------ */
 
@@ -297,9 +370,54 @@ function buildFence() {
 	add_demarquage(decoupe);
     } else{
 	actualise();
-	var i = 0;
-	selected_zone = null;
+	var direction = "vertical";
+	if (horizontal) {direction = "horizontal"};
+	try {
+	    var children = selected_zone.split(direction);
+	    nb_zones = nb_zones + 2;
+	    update_nb_zones(nb_zones);
+	    for (var i = 0; i < children.length; i++) {
+		trace_borders(children[i]);
+	    }
+	    selected_zone = null;
+	} catch (e) { // Potential splitting error
+	    if (e == "Cannot split more horizontally") {
+		alert("Impossible de construire des enclos plus fins");
+	    } else if (e == "Cannot split more vertically") {
+		alert("Impossible de construire des enclos plus fins");
+	    }
+	}
     }
+}
+
+function validate() {
+    if (root.check()) {
+	if (nb_zones <= MAX_NB_ZONES) { // Success
+	    if (nb_zones > BEST_NB_ZONES) {
+		var better = document.getElementById("better");
+		better.innerHTML = "Essaie avec seulement ".concat(BEST_NB_ZONES.toString()).concat(" enclos.");
+	    };
+	    modal.style.display = "block"; // congratulation block
+	}
+	else { // Failure: too many fields
+	    alert("Tu dois construire ".concat(MAX_NB_ZONES.toString()).concat(" enclos ou moins.\nTu peux recommencer en appuyant sur \"réinitialiser\"."));
+	}
+    } else { // Failure: constraint not respected
+	alert("Il y a un enclos avec 2 types d'animaux différents");
+    }
+    actualise();
+}
+
+function reset() {
+    actualise();
+    root = new Zone(initial_points);
+    selected_zone = null;
+    for (var i = 0; i < grid_cases.length; i++) {
+	erase_border(grid_cases[i]);
+    }
+    trace_borders(root);
+    nb_zones = 1;
+    update_nb_zones(nb_zones);
 }
 
 function at_mouseover_case(k) {
@@ -334,13 +452,26 @@ function at_click_case(k) {
 
 actualise();
 
-for (var i = 0; i < grid_cases.length; i++) {
+for (var i = 0; i < grid_cases.length; i++) { // events on cases
     var k = grid_cases[i];
+    erase_border(k);
     k.addEventListener("click", function(){ at_click_case(this); });
     k.addEventListener("mouseover", function(){ at_mouseover_case(this); });
     k.addEventListener("mouseout", function(){ at_mouseout_case(this); });
+};
+	
+span.onclick = function() { // close congratualtion box
+    congrat.style.display = "none";
 }
 
-// alert("No syntax error")
-    
+window.onclick = function(event) { // close congratualtion box
+    if (event.target == congrat) {
+	congrat.style.display = "none";
+    }
+}
 
+for (var i = 0; i < initial_points.length; i++) { // placing animals
+    place_point(initial_points[i]);
+}
+
+trace_borders(root); // drawing the borders of the root zone
