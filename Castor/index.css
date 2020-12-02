@@ -3,46 +3,74 @@
 }
 
 #titre {
-    max-width: 600px;
+    max-width: 650px;
     text-align: center;
 }
 
 /* -------- Panel gauche -----------*/
 
 #panel-gauche {
-    min-width: 210px;
+    min-width: 300px;
     float: left;
     padding: 5px;
 }
 
 #grid {
     display: grid;
-    grid-template-columns: repeat(9, 30px);
-    grid-template-rows: repeat(9, 30px);
+    grid-template-columns: repeat(9, 40px);
+    grid-template-rows: repeat(9, 40px);
     grid-gap: 0px;
     background-color: #FFFFFF;
-    border: 2px solid black;
+    border: 1px solid black;
     padding: 0px;
 }
 
-#grid > div {
-    /*border: 1px solid black;  */
-    padding: 0px
+.animal {
+    display: block;
+    width: 95%;
+    height: 95%;
+    margin-left: auto; /* centering */
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    padding: 1px;
 }
-/*
-#grid > div:hover {
-    background-color: #A6F4FF;
-}
-*/
+
 .borders {
     border: 1px solid black;
 }
 
+.pad1-left {
+    padding-left: 1px;
+}
+.pad1-right {
+    padding-right: 1px;
+}
+.pad1-top {
+    padding-top: 1px;
+}
+.pad1-bottom {
+    padding-bottom: 1px;
+}
+
+.border1-left {
+    border-left: 1px solid black;
+}
+.border1-right {
+    border-right: 1px solid black;
+}
+.border1-top {
+    border-top: 1px solid black;
+}
+.border1-bottom {
+    border-bottom: 1px solid black;
+}
+
 .brownbackground {
-    background-color: #DE9967;
+    background-color: #34B4E3;
 }
 .bluebackground {
-    background-color: #A6F4FF;
+    background-color: rgb(160,244,255);
 }
 
 /* --------- Panel Droite ---------- */
@@ -56,7 +84,7 @@
 #panel-droite ul {
     padding: 0px;
     margin: 5px 0px;
-    border-left: 5px solid blue;
+    border-left: 5px solid #9E201E;
 }
 
 #panel-droite li {
@@ -67,17 +95,92 @@
 
 
 #decoupe {
-    width: 100px;
+    width: 250px;
+    height: 148px;
     margin: 0px;
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 10px;
+}
+.dir {
+    width: 100%;
+    height: 60px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+.dir input {
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 8%;
+}
+.dir img {
+    height: 60px;
+    width: 180px;
 }
 
-#valider {
-    padding: 5px;
+#nb-enclos {
+    text-align: center;
+    padding: 10px;
 }
 
-#erreurs {
-    min-height: 50px;
+#ind-zones {
+    border: 2px solid black;
+    padding: 3px;
+}
+
+#construire {
     padding: 5px;
+    width: 150px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#val-btns {
+    padding: 5px;
+    width: 150px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#congrat {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+#congrat-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+  text-align: center;
+  font-size: 30px;
+  border: 5px solid #26844E;
+}
+
+/* The Close Button */
+#congrat-close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+#congrat-close:hover,
+#congrat-close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .pad5 {
@@ -89,6 +192,3 @@
     border-radius: 5px;
     padding: 3px;
 }
-
-
-
