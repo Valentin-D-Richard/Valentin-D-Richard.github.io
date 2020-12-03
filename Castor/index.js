@@ -418,6 +418,8 @@ function reset() {
     trace_borders(root);
     nb_zones = 1;
     update_nb_zones(nb_zones);
+    var better = document.getElementById("better");
+    better.innerHTML = "";
 }
 
 function at_mouseover_case(k) {
