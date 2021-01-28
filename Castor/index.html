@@ -1,13 +1,67 @@
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
   <head>
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
+    <link rel="shortcut icon" type="image/png" href="castor.ico">
     <title>Enclos</title>
   </head>
   <body>
+    
+    <!--- accueil ---------------------------------->
+    <div id="accueil">
+      <div id="intitule">
+	<img id="castor-pic" src="castor.png" alt="castor" title="Castor"/>
+      </br>
+      <h1>Concours Castor &nbsp &nbsp &nbsp &nbsp &nbsp</h1>
+      </div>
+      </br>
+      <h2 class="titre">Enclos</h2>
+      <p>Choisis un niveau :</p>
+      <div id="exo-btns">
+	<div class="line">
+	  <button onclick="load_0()">Facile</button>
+	  <div class="star-line"></div>
+	</div>
+	<div class="line">
+	  <button onclick="load_1()">Intermédiaire</button>
+	  <div class="star-line"></div>
+	</div>
+	<div class="line">
+	  <button onclick="load_2()">Difficile</button>
+	  <div class="star-line"></div>
+	</div>
+      </div>
+      </br></br></br></br>
+      <button onclick="load_credits()" id="credits-btn">Crédits</button>
+      <button onclick="load_cdli()" id="cdli-btn">C'est de l'informatique</button>
+    </div>
 
-    <h2 id="titre">Construis des enclos jusqu'à ce qu'il n'y ait qu'un seul type d'animal par enclos (cochon, vache ou mouton).</h2>
+    <!--- credits ---------------------------------->
+    <div id="credits">
+      <button class="back-btn" onclick="unload_credits()">Accueil</button></br></br></br></br>
+      <h2>Crédits</h2>
+      <p>&nbsp &nbsp &nbsp &nbspCet exercice pour le <a href="http://castor-informatique.fr" target="_blank">concours Castor</a> a été conçu par</p>
+      <p id="noms">Pierre Guetschel et Valentin Richard</p>
+      <p>dans le cadre de l'actvité <i>Diffusion des savoirs</i> à l'ENS Paris-Saclay, sous la direction de Françoise Tort et Mathias Hiron.</p>
+      <p>&nbsp &nbsp &nbsp &nbsp Il est libre de diffusion et réutilisation.</p>
+    </div>
+
+    <!--- cdli ---------------------------------->
+    <div id="cdli">
+      <button class="back-btn" onclick="unload_cdli()">Accueil</button></br></br></br></br>
+      <h2>C'est de l'informatique</h2>
+      <p>Le fait de former des enclos en sous-divisant de plus gros enclos leur impose une structure bien particulière et hiérarchique. Chaque enclos est soit formé à partir d'un enclos plus gros, soit c'est le plus gros de tous. En informatique, cette structure s'appelle un <b>arbre de décision</b>.</p>
+      <p>Ils sont très utilisés, notamment en <b>apprentissage automatique</b>, car ils permettent de <i>trier</i> ou <i>classifier</i> efficacement des données. On souhaite souvent trouver un arbre qui est le plus petit possible, ou alors un arbre dont la taille est inférieure à une constante (qui se traduit dans notre exercice par la consigne "au plus n enclos"). Plus l'arbre est petit, plus il sera rapide à parcourir, et donc plus on gagne en efficacité. Cette contrainte réduit aussi les problèmes de <b>surapprentissage</b>.</p>
+    </div>
+    
+    <!-- exercice--------------------------------  -->
+    <div id="exercice">
+      <div id="en-tete">
+	<button class="back-btn" onclick="unload()">Accueil</button>
+	<h2 class="titre">Construis des enclos jusqu'à ce qu'il n'y ait qu'un seul type d'animal par enclos (cochon, vache ou mouton).</h2>
+      </div>
 
     <div id="panel">
       <div id="panel-gauche">
@@ -129,6 +183,7 @@
 	    <div id="congrat-content">
 	      <span id="congrat-close">&times;</span>
 	      <p><b>Bien joué !</b></p>
+	      <div id="star-box"></div>
 	      <p id="better"></p>
 	    </div>
 	  </div>
@@ -136,14 +191,15 @@
 	
 	<div id="nb-enclos">
 	  Nombre d'enclos :
-	  <b id="ind-zones"><b id="nb-zones">1</b><b> / 7</b></b>
+	  <b id="ind-zones"><b id="nb-zones">1</b><b> / </b><b id="max-nb-zones">7</b></b>
 	</div>
 
 	<div id="val-btns">
 	  <button onclick="validate()" >Valider</button>
 	  <button onclick="reset()" >Réinitialiser</button>
 	</div>
-    </div>
+      </div>
+      </div>
   </body>
   <script src="index.js"></script>
 </html>
