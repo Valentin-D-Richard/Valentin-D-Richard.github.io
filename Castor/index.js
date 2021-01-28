@@ -1,11 +1,17 @@
 /* --------- Variables globales ------------- */
+var accueil    = document.getElementById("accueil");
+var exercice   = document.getElementById("exercice");
+var credits    = document.getElementById("credits");
+var cdli       = document.getElementById("cdli");
 
 var decoupe    = document.getElementById("decoupe");
 var grid_cont  = document.getElementById("grid-container");
 var grid_cases = document.getElementsByClassName("case");
 
-var modal = document.getElementById("congrat"); // congratulation box
-var span = document.getElementById("congrat-close");
+var modal      = document.getElementById("congrat"); // congratulation box
+var span       = document.getElementById("congrat-close");
+var star_box   = document.getElementById("star-box"); // star score
+var star_lines = document.getElementsByClassName("star-line"); // accueil star boxes
 
 /* --------- Fonctions de base ------------ */
 
@@ -78,7 +84,7 @@ function fr(an) {
     return fr;
 }
 
-/* --------- Fonctions dde modification CSS --------- */
+/* --------- Fonctions de modification CSS --------- */
 
 function remove_demarquage(element) {
     element.classList.remove("demarquage");
@@ -165,6 +171,44 @@ function trace_borders(z) {
 	    draw_border(k, lims, l[0], l[1]);
 	}
     });
+}
+
+function go_to(cur_sect,to_sect) {
+    /// hides the current section and display the given to_sec
+    cur_sect.classList.remove("visible");
+    cur_sect.classList.add("invisible");
+    to_sect.classList.remove("invisible");
+    to_sect.classList.add("visible");
+}
+
+function update_local_stars() {
+    var starpic   = "<img src=\"star.jpeg\" alt=\"etoile\" class=\"star\">";
+    var nostarpic = "<img src=\"no-star.jpeg\" alt=\"etoile\" class=\"star\">";
+    var nb_stars  = LOCAL_STARS[0] + LOCAL_STARS[1] + LOCAL_STARS[2];
+    var content = "";
+    for (var i=0; i < nb_stars; i++) {
+	content = content.concat(starpic);
+    }
+    for (var i=0; i < 3 - nb_stars; i++) {
+	content = content.concat(nostarpic);
+    }
+    star_box.innerHTML = content;
+}
+
+function update_global_stars() {
+    var starpic   = "<img src=\"star.jpeg\" alt=\"etoile\" class=\"lil-star\">";
+    var nostarpic = "<img src=\"no-star.jpeg\" alt=\"etoile\" class=\"lil-star\">";
+    for (var ex = 0; ex <3; ex++) {
+	var nb_stars  = STARS[ex][0] + STARS[ex][1] + STARS[ex][2];
+	var content = "";
+	for (var i=0; i < nb_stars; i++) {
+	    content = content.concat(starpic);
+	}
+	for (var i=0; i < 3 - nb_stars; i++) {
+	    content = content.concat(nostarpic);
+	}
+	star_lines[ex].innerHTML = content;
+    };
 }
 
 /* ------------- Module de gestion du problème ------------ */
@@ -341,18 +385,50 @@ alert(root.check());
 
 /* ----------- Variables  globales du problème -------- */
 
-let MAX_NB_ZONES = 7;
-let BEST_NB_ZONES = 5;
+var CURRENT_EX = 0; // default current exercice id
 
-var initial_points = [new Point(1,1,"sheep"), new Point(4,2,"pig"),
-		      new Point(5,2,"cow"), new Point(6,3,"sheep"),
-		      new Point(8,3,"pig"), new Point(3,6,"sheep"),
-		      new Point(9,6,"pig"), new Point(4,8,"pig")];
+let MAX_NB_ZONES_LIST = [7, 13, 21];
+let BEST_NB_ZONES_LIST = [5, 11, 17];
+
+var MAX_NB_ZONES = MAX_NB_ZONES_LIST[0];
+var BEST_NB_ZONES = BEST_NB_ZONES_LIST[0];
+
+let point_list = [ [new Point(1,1,"sheep"), new Point(4,2,"pig"),
+		    new Point(5,2,"cow"), new Point(6,3,"sheep"),
+		    new Point(8,3,"pig"), new Point(3,6,"sheep"),
+		    new Point(9,6,"pig"), new Point(4,8,"pig"),
+		    new Point(5,1,"cow")],
+		   [new Point(9,1,"sheep"), new Point(5,2,"pig"),
+		    new Point(6,2,"cow"), new Point(1,3,"sheep"),
+		    new Point(6,4,"sheep"), new Point(1,5,"cow"),
+		    new Point(4,6,"pig"), new Point(4,7,"pig"),
+		    new Point(5,7,"cow"), new Point(7,7,"sheep"),
+		    new Point(1,9,"cow")],
+		   [new Point(3,1,"sheep"), new Point(5,1,"sheep"),
+		    new Point(7,1,"cow"), new Point(9,1,"pig"),
+		    new Point(1,2,"cow"), new Point(7,2,"cow"),
+		    new Point(4,3,"pig"), new Point(9,3,"pig"),
+		    new Point(3,4,"pig"), new Point(6,4,"pig"),
+		    new Point(1,5,"sheep"), new Point(1,7,"sheep"),
+		    new Point(6,7,"pig"), new Point(7,7,"sheep"),
+		    new Point(3,8,"pig"), new Point(9,8,"pig"),
+		    new Point(1,9,"cow"), new Point(7,9,"cow")] ];
+
+var initial_points = point_list[0];
 		  
 var root = new Zone(initial_points);
 
 var selected_zone = null;
 var nb_zones = 1;
+
+//var start = Date.now();
+let BEST_DURATIONS = [15, 16, 30]; // in seconds
+// time is counted in the first exercice to read the wording
+var BEST_DURATION = BEST_DURATIONS[0];
+
+// Stars for every exercise, 1st star = success, 2nd = best nb of zones, 3rd = best time
+var STARS = [[0, 0, 0], [0, 0, 0], [0, 0, 0]];
+var LOCAL_STARS = [0, 0, 0];
 
 /* ------------ Module d'interface et actions ------------ */
 
@@ -391,12 +467,20 @@ function buildFence() {
 }
 
 function validate() {
+    var duration = Math.floor((Date.now() - start) / 1000); // in seconds
     if (root.check()) {
 	if (nb_zones <= MAX_NB_ZONES) { // Success
-	    if (nb_zones > BEST_NB_ZONES) {
+	    LOCAL_STARS[0] = 1;
+	    LOCAL_STARS[1] = 1;
+	    if (nb_zones > BEST_NB_ZONES) { // Not best number of zones
 		var better = document.getElementById("better");
 		better.innerHTML = "Essaie avec seulement ".concat(BEST_NB_ZONES.toString()).concat(" enclos.");
+		LOCAL_STARS[1] = 0;
 	    };
+	    if (duration < BEST_DURATION) { // Really fast
+		LOCAL_STARS[2] = 1;
+	    };
+	    update_local_stars();
 	    modal.style.display = "block"; // congratulation block
 	}
 	else { // Failure: too many fields
@@ -406,6 +490,24 @@ function validate() {
 	alert("Il y a un enclos avec 2 types d'animaux différents");
     }
     actualise();
+}
+
+function load_settings() {
+    for (var i = 0; i < initial_points.length; i++) { // placing animals
+    place_point(initial_points[i]);
+    }
+    var max_nb_zones = document.getElementById("max-nb-zones");
+    max_nb_zones.innerHTML = MAX_NB_ZONES.toString(); // setting the max number of zones
+}
+
+function unload_settings() {
+    for (var i = 1; i <= 9; i++) { // erases the images in the cases
+	for (var j = 1; j <= 9; j++) {
+	    var chars = list_to_chars([i,j]);
+	    var k = document.getElementsByClassName("case ".concat(chars))[0];
+	    k.innerHTML = "";
+	}
+    }
 }
 
 function reset() {
@@ -420,6 +522,41 @@ function reset() {
     update_nb_zones(nb_zones);
     var better = document.getElementById("better");
     better.innerHTML = "";
+    start = Date.now(); // records the time taken to do the exercise
+}
+
+function load(ex) {
+    /// loads the exercice ex (graphics and global problem variables)
+    CURRENT_EX = ex;
+    MAX_NB_ZONES = MAX_NB_ZONES_LIST[ex];
+    BEST_NB_ZONES = BEST_NB_ZONES_LIST[ex];
+    BEST_DURATION = BEST_DURATIONS[ex];
+    LOCAL_STARS = [0,0,0];
+    initial_points = point_list[ex];
+    load_settings();
+    reset();
+
+    go_to(accueil,exercice);
+}
+
+function load_0() {
+    load(0);
+}
+function load_1() {
+    load(1);
+}
+function load_2() {
+    load(2);
+}
+
+function unload() {
+    for (var i = 0; i < 3; i++) {
+	STARS[CURRENT_EX][i] = Math.max(LOCAL_STARS[i], STARS[CURRENT_EX][i]);
+    }
+    update_global_stars();
+    unload_settings();
+
+    go_to(exercice,accueil);
 }
 
 function at_mouseover_case(k) {
@@ -450,9 +587,27 @@ function at_click_case(k) {
     
 }
 
+function load_credits() {
+    go_to(accueil,credits);
+}
+function unload_credits() {
+    go_to(credits,accueil);
+}
+
+function load_cdli() {
+    go_to(accueil,cdli);
+}
+function unload_cdli() {
+    go_to(cdli,accueil);
+}
+
 /* -------- Script d'écoute ------------*/
 
 actualise();
+accueil.classList.add("visible");
+exercice.classList.add("invisible");
+credits.classList.add("invisible");
+cdli.classList.add("invisible");
 
 for (var i = 0; i < grid_cases.length; i++) { // events on cases
     var k = grid_cases[i];
@@ -472,8 +627,5 @@ window.onclick = function(event) { // close congratualtion box
     }
 }
 
-for (var i = 0; i < initial_points.length; i++) { // placing animals
-    place_point(initial_points[i]);
-}
-
 trace_borders(root); // drawing the borders of the root zone
+update_global_stars(); // displaying star scores
