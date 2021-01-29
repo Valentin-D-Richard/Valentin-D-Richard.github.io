@@ -387,8 +387,8 @@ alert(root.check());
 
 var CURRENT_EX = 0; // default current exercice id
 
-let MAX_NB_ZONES_LIST = [7, 13, 21];
-let BEST_NB_ZONES_LIST = [5, 11, 17];
+let MAX_NB_ZONES_LIST = [7, 13, 17];
+let BEST_NB_ZONES_LIST = [5, 11, 15];
 
 var MAX_NB_ZONES = MAX_NB_ZONES_LIST[0];
 var BEST_NB_ZONES = BEST_NB_ZONES_LIST[0];
