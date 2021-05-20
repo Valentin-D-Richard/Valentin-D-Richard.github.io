@@ -1,2 +1,5 @@
 # Ignores auxiliary emacs files
-#*#
+\#*\#
+.\#*\#
+*/\#*\#
+*/.\#*\#
