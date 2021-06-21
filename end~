@@ -1,0 +1,9 @@
+#!/bin/bash
+git add */*.tex
+git add *.tex
+echo "Commit message: "
+read -r commit_msg # asks for an input
+git commit -m "${commit_msg[@]}"
+git push
+cd ~
+
