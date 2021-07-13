@@ -8,10 +8,6 @@ a { /* class specification */
     color: #006478;
 }
 
-ul::after {
-    content: '';
-}
-
 h1, h2, h3 {
     margin:0;
 }
