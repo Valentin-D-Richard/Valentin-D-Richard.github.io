@@ -82,6 +82,9 @@ h2{
 #content{
     padding: 5px; /* or top right bottom left */
 }
+#introduction-text li{
+    list-style-position: inside;
+}
 
 #new{
     max-width: 180px;
