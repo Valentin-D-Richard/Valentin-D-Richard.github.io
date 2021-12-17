@@ -1,19 +1,25 @@
 #! /bin/bash
 
-# Si aucun argument n'est donné, applique sur les fichiers du dossier courant
-if (($# == 0))
-then
-    FILES="$(ls)"
-else
-    FILES="$@"
-fi
-
 # Suppression des retours chariot
-for FILE in $(ls)
-do
-    if [[ -f $FILE ]]
-    then
-	[[ ! -w $FILE ]] && echo "Fichier $FILE non modifiable."
-	sed -i 's/\r//g' "$FILE"
-    fi
-done
+if (( $# == 0 ))
+then
+    # Cas par défaut : tous les fichiers du soddiser courant
+    for FILE in *
+    do
+	if [[ -f $FILE ]]
+	then
+	    [[ ! -w $FILE ]] && echo "Fichier $FILE non modifiable."
+	    sed -i 's/\r//g' "$FILE"
+	fi
+    done
+else
+    # Appliqué sur les arguments
+    for FILE in "$@"
+    do
+	if [[ -f $FILE ]]
+	then
+	    [[ ! -w $FILE ]] && echo "Fichier $FILE non modifiable."
+	    sed -i 's/\r//g' "$FILE"
+	fi
+    done
+fi
