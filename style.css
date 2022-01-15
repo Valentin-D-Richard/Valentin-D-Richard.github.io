@@ -40,7 +40,8 @@ h2{
     padding: 0px;
     background-color: #006478;
     cursor: pointer;
-    color: black;
+    color: white;
+    font-size: x-large;
 }
 
 .btn:hover {
