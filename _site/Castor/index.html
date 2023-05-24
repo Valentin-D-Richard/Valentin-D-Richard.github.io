@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+  <head>
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <link rel="shortcut icon" type="image/png" href="castor.ico">
+    <title>Enclos</title>
+  </head>
+  <body>
+    
+    <!--- accueil ---------------------------------->
+    <div id="accueil">
+      <div id="intitule">
+	<img id="castor-pic" src="castor.png" alt="castor" title="Castor"/>
+      </br>
+      <h1>Concours Castor &nbsp &nbsp &nbsp &nbsp &nbsp</h1>
+      </div>
+      </br>
+      <h2 class="titre">Enclos</h2>
+      <p>Choisis un niveau :</p>
+      <div id="exo-btns">
+	<div class="line">
+	  <button onclick="load_0()">Facile</button>
+	  <div class="star-line"></div>
+	</div>
+	<div class="line">
+	  <button onclick="load_1()">Intermédiaire</button>
+	  <div class="star-line"></div>
+	</div>
+	<div class="line">
+	  <button onclick="load_2()">Difficile</button>
+	  <div class="star-line"></div>
+	</div>
+      </div>
+      </br></br></br></br>
+      <button onclick="load_credits()" id="credits-btn">Crédits</button>
+      <button onclick="load_cdli()" id="cdli-btn">C'est de l'informatique</button>
+    </div>
+
+    <!--- credits ---------------------------------->
+    <div id="credits">
+      <button class="back-btn" onclick="unload_credits()">Accueil</button></br></br></br></br>
+      <h2>Crédits</h2>
+      <p>&nbsp &nbsp &nbsp &nbspCet exercice pour le <a href="http://castor-informatique.fr" target="_blank">concours Castor</a> a été conçu par</p>
+      <p id="noms">Pierre Guetschel et Valentin Richard</p>
+      <p>dans le cadre de l'actvité <i>Diffusion des savoirs</i> à l'ENS Paris-Saclay, sous la direction de Françoise Tort et Mathias Hiron.</p>
+      <p>&nbsp &nbsp &nbsp &nbsp Il est libre de diffusion et réutilisation.</p>
+      </br>
+      <p><i>Conseil :</i> Pour obtenir toutes les étoiles, essaie de finir les exercices le plus rapidement possible.</p>
+    </div>
+
+    <!--- cdli ---------------------------------->
+    <div id="cdli">
+      <button class="back-btn" onclick="unload_cdli()">Accueil</button></br></br></br></br>
+      <h2>C'est de l'informatique</h2>
+      <p>Le fait de former des enclos en sous-divisant de plus gros enclos leur impose une structure bien particulière et hiérarchique. Chaque enclos est soit formé à partir d'un enclos plus gros, soit c'est le plus gros de tous. En informatique, cette structure s'appelle un <b>arbre de décision</b>.</p>
+      <p>Ils sont très utilisés, notamment en <b>apprentissage automatique</b>, car ils permettent de <i>trier</i> ou <i>classifier</i> efficacement des données. On souhaite souvent trouver un arbre qui est le plus petit possible, ou alors un arbre dont la taille est inférieure à une constante (qui se traduit dans notre exercice par la consigne "au plus n enclos"). Plus l'arbre est petit, plus il sera rapide à parcourir, et donc plus on gagne en efficacité. Cette contrainte réduit aussi les problèmes de <b>surapprentissage</b>.</p>
+    </div>
+    
+    <!-- exercice--------------------------------  -->
+    <div id="exercice">
+      <div id="en-tete">
+	<button class="back-btn" onclick="unload()">Accueil</button>
+	<h2 class="titre">Construis des enclos jusqu'à ce qu'il n'y ait qu'un seul type d'animal par enclos (cochon, vache ou mouton).</h2>
+      </div>
+
+    <div id="panel">
+      <div id="panel-gauche">
+	<div id="grid-container">
+	  <div id="grid">
+	    <div class="case 11"></div>
+	    <div class="case 21"></div>
+	    <div class="case 31"></div>
+	    <div class="case 41"></div>
+	    <div class="case 51"></div>
+	    <div class="case 61"></div>
+	    <div class="case 71"></div>
+	    <div class="case 81"></div>
+	    <div class="case 91"></div>
+	    
+	    <div class="case 12"></div>
+	    <div class="case 22"></div>
+	    <div class="case 32"></div>
+	    <div class="case 42"></div>
+	    <div class="case 52"></div>
+	    <div class="case 62"></div>
+	    <div class="case 72"></div>
+	    <div class="case 82"></div>
+	    <div class="case 92"></div>
+	    
+	    <div class="case 13"></div>
+	    <div class="case 23"></div>
+	    <div class="case 33"></div>
+	    <div class="case 43"></div>
+	    <div class="case 53"></div>
+	    <div class="case 63"></div>
+	    <div class="case 73"></div>
+	    <div class="case 83"></div>
+	    <div class="case 93"></div>
+	    
+	    <div class="case 14"></div>
+	    <div class="case 24"></div>
+	    <div class="case 34"></div>
+	    <div class="case 44"></div>
+	    <div class="case 54"></div>
+	    <div class="case 64"></div>
+	    <div class="case 74"></div>
+	    <div class="case 84"></div>
+	    <div class="case 94"></div>
+	    
+	    <div class="case 15"></div>
+	    <div class="case 25"></div>
+	    <div class="case 35"></div>
+	    <div class="case 45"></div>
+	    <div class="case 55"></div>
+	    <div class="case 65"></div>
+	    <div class="case 75"></div>
+	    <div class="case 85"></div>
+	    <div class="case 95"></div>
+	    
+	    <div class="case 16"></div>
+	    <div class="case 26"></div>
+	    <div class="case 36"></div>
+	    <div class="case 46"></div>
+	    <div class="case 56"></div>
+	    <div class="case 66"></div>
+	    <div class="case 76"></div>
+	    <div class="case 86"></div>
+	    <div class="case 96"></div>
+	    
+	    <div class="case 17"></div>
+	    <div class="case 27"></div>
+	    <div class="case 37"></div>
+	    <div class="case 47"></div>
+	    <div class="case 57"></div>
+	    <div class="case 67"></div>
+	    <div class="case 77"></div>
+	    <div class="case 87"></div>
+	    <div class="case 97"></div>
+	   
+	    <div class="case 18"></div>
+	    <div class="case 28"></div>
+	    <div class="case 38"></div>
+	    <div class="case 48"></div>
+	    <div class="case 58"></div>
+	    <div class="case 68"></div>
+	    <div class="case 78"></div>
+	    <div class="case 88"></div>
+	    <div class="case 98"></div>
+	    
+	    <div class="case 19"></div>
+	    <div class="case 29"></div>
+	    <div class="case 39"></div>
+	    <div class="case 49"></div>
+	    <div class="case 59"></div>
+	    <div class="case 69"></div>
+	    <div class="case 79"></div>
+	    <div class="case 89"></div>
+	    <div class="case 99"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="panel-droite">
+	<ul>
+	  <li><b>(1)</b> Sélectionne un enclos où il y a un animal</li>
+	  <li><b>(2)</b> Sélectionne un plan de construction     (horizontal ou vertical)</li>
+	  <li><b>(3)</b> Ensuite, appuie sur "Construire les enclos"</li>
+	</ul>
+	
+	<div id="decoupe">
+	  <b>Plans :</b>
+	  <div class="dir hor">
+	      <input type="radio" id="horizontal" name="direction" >
+	    <label ><img src="horizontal.png" alt="horizontal" class="direction"></label>
+	  </div>
+	  <div class="dir vert">
+	      <input type="radio" id="vertical" name="direction" >
+	    <label ><img src="vertical.png" alt="vertical" class="direction"></label>
+	  </div><br>
+	</div>
+	<div id="construire">
+	  <button onclick="buildFence()" >Construire les enclos</button><br>
+	  <div id="congrat">
+	    <div id="congrat-content">
+	      <span id="congrat-close">&times;</span>
+	      <p><b>Bien joué !</b></p>
+	      <div id="star-box"></div>
+	      <p id="better"></p>
+	    </div>
+	  </div>
+	</div><br>
+	
+	<div id="nb-enclos">
+	  Nombre d'enclos :
+	  <b id="ind-zones"><b id="nb-zones">1</b><b> / </b><b id="max-nb-zones">7</b></b>
+	</div>
+
+	<div id="val-btns">
+	  <button onclick="validate()" >Valider</button>
+	  <button onclick="reset()" >Réinitialiser</button>
+	</div>
+      </div>
+      </div>
+  </body>
+  <script src="index.js"></script>
+</html>

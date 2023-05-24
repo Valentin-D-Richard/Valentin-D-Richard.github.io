@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentin D. Richard</title>
+    <link rel="stylesheet" type="text/css" href="../style.css">
+    <link rel="shortcut icon" type="image/png" href="../logo-V.png">
+  </head>
+  <body>
+    <div id="container">
+      <div id="header">
+				<div id="language">
+					<button class="btn fr" onclick="filterSelection('fr')"><b>fr</b></button>
+					<b style="color: white">·</b>
+					<button class="btn active" onclick="filterSelection('en')"><b>en</b></button>
+				</div>
+				<h1>Valentin D. Richard</h1>
+				<em class="lang en">Researcher in computational linguistics</em>
+				<em class="lang fr">Chercheur en linguistique informatique</em>
+				<div id="nav">
+					<ul>
+						<li>
+							<a href="../index.html?en" class="lang en">Home</a>
+							<a href="../index.html?fr" class="lang fr">Accueil</a>
+						</li>
+						<li class="active">
+							<a href="index.html?en" class="lang en">Research output</a>
+							<a href="index.html?fr" class="lang fr">Travaux de recherche</a>
+						</li>
+						<li>
+							<a href="../Voluntary/index.html?en" class="lang en">Voluntary</a>
+							<a href="../Voluntary/index.html?fr" class="lang fr">Associatif</a>
+						</li>
+					</ul>
+				</div>
+      </div>
+
+      <div id="content">
+				<div id="main">
+					<h1 class="lang en">Publications</h1>
+					<h1 class="lang fr">Publications</h1>
+
+					<p id="loading">Loading...</p>
+					<script src="https://bibbase.org/show?bib=https%3A%2F%2Fbibbase.org%2Fzotero-mypublications%2FValentinDRichard&nocache=1&theme=default&fullnames=1&commas=true&group0=year&sort=month&&jsonp=1&showSearch=true"></script> 
+					
+					<script type="text/javascript">
+						$(document).ready(function(){
+						$('#loading').show().delay(0000).fadeOut(0);
+							});
+					</script>
+
+				</div>
+
+      
+				<div id="footer">
+					Valentin D. Richard
+					<img src="../logo-VR.png" alt="logo-VR-2019" title="logo-VR-2019" width="200"/>
+				</div>
+    	</div>
+    	<script src="../script.js"></script>
+		</div>
+  </body>
+</html>

@@ -1,0 +1,25 @@
+#! /bin/bash
+
+# Suppression des retours chariot
+if (( $# == 0 ))
+then
+    # Cas par défaut : tous les fichiers du dossier courant
+    for FILE in *
+    do
+	if [[ -f $FILE ]]
+	then
+	    [[ ! -w $FILE ]] && echo "Fichier $FILE non modifiable."
+	    sed -i 's/\r//g' "$FILE"
+	fi
+    done
+else
+    # Appliqué sur les arguments
+    for FILE in "$@"
+    do
+	if [[ -f $FILE ]]
+	then
+	    [[ ! -w $FILE ]] && echo "Fichier $FILE non modifiable."
+	    sed -i 's/\r//g' "$FILE"
+	fi
+    done
+fi

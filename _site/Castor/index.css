@@ -1,0 +1,285 @@
+.title {
+    display: none;
+}
+
+.titre {
+    max-width: 650px;
+    text-align: center;
+}
+
+/* --------- Accueil --------------*/
+
+#accueil {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+#accueil .titre {
+    color: #9E201E;
+}
+
+#castor-pic {
+    float: left;
+    height: 82px;
+    width: 90x;
+}
+
+h1 {
+    font-family: Georgia, sans-serif;
+    font-weight: normal;
+}
+
+.visible {
+    display: block;
+}
+.invisible {
+    display: none;
+}
+
+#exo-btns {
+    width: 416px;
+    margin: auto;
+}
+
+.line {
+    display: table-cell;
+    width: 142px;
+}
+
+.lil-star {
+    display: inline;
+    width: 20%;
+    height: auto;
+    margin: 0px;
+    padding: 1px;
+}
+
+
+#credits-btn {
+    float: left;
+}
+
+#cdli-btn {
+    float: right;
+}
+
+/* -------- Credits, CdlI -------- */
+
+#credits,#cdli {
+    max-width: 600px;
+    margin: auto;
+}
+
+#noms {
+    text-align: center;
+}
+
+/* --------- Exercice -------------*/
+
+#exercice {
+    max-width: 900px;
+    margin: auto;
+}
+
+#en-tete {
+    max-width: 750px;
+}
+
+.back-btn {
+    float: right;
+}
+
+/* -------- Panel gauche -----------*/
+
+#panel-gauche {
+    min-width: 300px;
+    float: left;
+    padding: 5px;
+}
+
+#grid {
+    display: grid;
+    grid-template-columns: repeat(9, 40px);
+    grid-template-rows: repeat(9, 40px);
+    grid-gap: 0px;
+    background-color: #FFFFFF;
+    border: 1px solid black;
+    padding: 0px;
+}
+
+.animal {
+    display: block;
+    width: 95%;
+    height: 95%;
+    margin-left: auto; /* centering */
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    padding: 1px;
+}
+
+.borders {
+    border: 1px solid black;
+}
+
+.pad1-left {
+    padding-left: 1px;
+}
+.pad1-right {
+    padding-right: 1px;
+}
+.pad1-top {
+    padding-top: 1px;
+}
+.pad1-bottom {
+    padding-bottom: 1px;
+}
+
+.border1-left {
+    border-left: 1px solid black;
+}
+.border1-right {
+    border-right: 1px solid black;
+}
+.border1-top {
+    border-top: 1px solid black;
+}
+.border1-bottom {
+    border-bottom: 1px solid black;
+}
+
+.brownbackground {
+    background-color: #34B4E3;
+}
+.bluebackground {
+    background-color: rgb(160,244,255);
+}
+
+/* --------- Panel Droite ---------- */
+
+#panel-droite {
+    float: left;
+    max-width: 400px;
+    padding: 5px;
+}
+
+#panel-droite ul {
+    padding: 0px;
+    margin: 5px 0px;
+    border-left: 5px solid #9E201E;
+}
+
+#panel-droite li {
+    list-style-type: none;
+    list-style-position: inside;
+    padding: 0px 5px;
+}
+
+
+#decoupe {
+    width: 250px;
+    height: 148px;
+    margin: 0px;
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 10px;
+}
+.dir {
+    width: 100%;
+    height: 60px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+.dir input {
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 10%;
+}
+.dir img {
+    height: 60px;
+    width: 180px;
+}
+
+#nb-enclos {
+    text-align: center;
+    padding: 10px;
+}
+
+#ind-zones {
+    border: 2px solid black;
+    padding: 3px;
+}
+
+#construire {
+    padding: 5px;
+    width: 150px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#val-btns {
+    padding: 5px;
+    width: 240px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#congrat {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+#congrat-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+  text-align: center;
+  font-size: 30px;
+  border: 5px solid #26844E;
+}
+
+/* The Close Button */
+#congrat-close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+#congrat-close:hover,
+#congrat-close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.star {
+    display: inline;
+    width: 20%;
+    height: auto;
+    margin: 0px;
+    padding: 1px;
+}
+
+.pad5 {
+    padding: 5px;
+}
+
+.demarquage {
+    border: 2px solid red;
+    border-radius: 5px;
+    padding: 3px;
+}
