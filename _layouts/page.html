@@ -11,11 +11,14 @@
     <div id="container">
       {% include header.html %}
 
-      <h1>{{ page.title }}</h1>
+      <div id="content">
+        <div id="main">
+          {{ content }}
+        </div>
 
-      {{ content }}
+        {% include footer.html %}
+      </div>
 
-      {% include footer.html %}
 		</div>
 	  <script src="/render/script.js"></script>
   </body>

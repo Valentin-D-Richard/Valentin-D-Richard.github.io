@@ -1,68 +1,91 @@
-<!DOCTYPE html>	
-<html>	
-	<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-  	<title>Valentin D. Richard</title>
-    <link rel="stylesheet" type="text/css" href="../../style.css">
-    <link rel="shortcut icon" type="image/png" href="../../logo-V.png">
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentin D. Richard</title>
+    <link rel="shortcut icon" type="image/png" href="/render/logo-V.png">
+    <link rel="stylesheet" type="text/css" href="/render/style.css">
   </head>
   <body>
     <div id="container">
       <div id="header">
-				<div id="language">
-	  			<button class="btn fr" onclick="filterSelection('fr')"><b>fr</b></button>
-	  			<b style="color: white">·</b>
-	  			<button class="btn active" onclick="filterSelection('en')"><b>en</b></button>
-				</div>
-			<h1>Valentin D. Richard</h1>
-			<em class="lang en">Researcher in computational linguistics</em>
-			<em class="lang fr">Chercheur en linguistique informatique</em>
-			<div id="nav">
-	  		<ul>
-	    		<li>
-						<a href="../../index.html?en" class="lang en">Home</a>
-						<a href="../../index.html?fr" class="lang fr">Accueil</a>
-					</li>
-					<li class="active">
-						<a href="../index.html?en" class="lang en">Research output</a>
-						<a href="../index.html?fr" class="lang fr">Travaux de recherche</a>
-					</li>
-					<li>
-						<a href="../../Voluntary/index.html?en" class="lang en">Voluntary</a>
-						<a href="../../Voluntary/index.html?fr" class="lang fr">Associatif</a>
-					</li>
-				</ul>
-			</div>
- 		</div>
+  <div id="language">
+    <button class="btn fr" onclick="filterSelection('fr')"><b>fr</b></button>
+    <b style="color: white">·</b>
+    <button class="btn active" onclick="filterSelection('en')"><b>en</b></button>
+  </div>
+  <h1>Valentin D. Richard</h1>
+  <em class="lang en">Researcher in computational linguistics</em>
+  <em class="lang fr">Chercheur en linguistique informatique</em>
 
-    <div id="content">
-			<div id="main">
-				<h1>Embedding Intensional Semantic into Inquisitive Semantics</h1>
+  <div id="nav">
+    <ul>
+      <li id="Home" class="active">
+        <a href="/index.html?en" class="lang en">Home</a>
+        <a href="/index.html?fr" class="lang fr">Accueil</a>
+      </li>
+      <li id="Publications" >
+        <a href="/Publications/index.html?en" class="lang en">Publications</a>
+        <a href="/Publications/index.html?fr" class="lang fr">Publications</a>
+      </li>
+      <!--
+      <li id="Projects" >
+        <a href="/Projects/index.html?en" class="lang en">Projects</a>
+        <a href="/Projects/index.html?fr" class="lang fr">Projets</a>
+      </li>
+      -->
+      <li id="Teaching" >
+        <a href="/Teaching/index.html?en" class="lang en">Teaching</a>
+        <a href="/Teaching/index.html?fr" class="lang fr">Enseignement</a>
+      </li>
+      <li id="Public" >
+        <a href="/Public/index.html?en" class="lang en">Dissemination</a>
+        <a href="/Public/index.html?fr" class="lang fr">Dissémination</a>
+      </li>
+      <li id="Commitment" >
+        <a href="/Commitment/index.html?en" class="lang en">Commitment</a>
+        <a href="/Commitment/index.html?fr" class="lang fr">Engagement</a>
+      </li>
+      <li id="Misc" >
+        <a href="/Misc/index.html?en" class="lang en">Misc</a>
+        <a href="/Misc/index.html?fr" class="lang fr">Autre</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+
+
+      <div id="content">
+        <div id="main">
+          <h1>Embedding Intensional Semantic into Inquisitive Semantics</h1>
 				
-				<figure class="row">
-					<a href="https://aclanthology.org/2021.mol-1.6/" class="icon">
-						<img src="../LINK.png" alt="Link">
-						<figcaption>ACL anthology</figcaption>
-					</a>
-					<a href="PDF.pdf" class="icon">
-						<img src="../PDF.png" alt="PDF">
-						<figcaption>PDF</figcaption>
-					</a>
-				 	<a href="slides.pdf" class="icon">
-						<img src="../SLIDES.png" alt="Slides">
-						<figcaption>Slides</figcaption>
-					</a>
-				</figure>
+<figure class="row">
+	<a href="https://aclanthology.org/2021.mol-1.6/" class="icon">
+		<img src="../LINK.png" alt="Link">
+		<figcaption>ACL anthology</figcaption>
+	</a>
+	<a href="PDF.pdf" class="icon">
+		<img src="../PDF.png" alt="PDF">
+		<figcaption>PDF</figcaption>
+	</a>
+	<a href="slides.pdf" class="icon">
+		<img src="../SLIDES.png" alt="Slides">
+		<figcaption>Slides</figcaption>
+	</a>
+</figure>
+        </div>
+
+        <div id="footer">
+    Valentin D. Richard
+    <img src="/render/logo-VR.png" alt="logo-VR-2019" title="logo-VR-2019" width="200"/>
+</div>
+
+
       </div>
 
-	
-      
-      <div id="footer">
-				Valentin D. Richard
-				<img src="../../logo-VR.png" alt="logo-VR-2019" title="logo-VR-2019" width="200"/>
-      </div>
-    </div>
-    <script src="../../script.js"></script>
+		</div>
+	  <script src="/render/script.js"></script>
   </body>
 </html>
