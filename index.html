@@ -116,41 +116,12 @@ layout: page
 
 
 <!--Publications-->
-<div id="publications">
-	<h1 class="lang en">Publications</h1>
-	<h1 class="lang fr">Publications</h1>
-
-	<p id="loading">Loading...</p>
-	<script src="https://bibbase.org/show?bib=https%3A%2F%2Fbibbase.org%2Fzotero-mypublications%2FValentinDRichard&nocache=1&theme=default&fullnames=1&commas=true&group0=year&jsonp=1&showSearch=true"></script> 
-
-	<script type="text/javascript">
-		$(document).ready(function(){
-		$('#loading').hide().delay(0o0).fadeOut(0);
-			});
-	</script>
-
-	<br><br>
-	<h2 class="lang en">Other presentations</h2>
-	<h2 class="lang fr">Autre présentations</h2>
-
-	<div class="lang en">
-		<ul>
-			<li>
-				<a href="2023-Richard-fudia-atilf.pdf">
-					Extraction des interrogatives de corpus francophones annotés en dépendances universelles</a>,
-					27 March 2023, at the NLP Coffee Time, Atilf, Nancy, France
-			</li>
-		</ul>
-	</div>
-	<div class="lang fr">
-		<ul>
-			<li>
-				<a href="2023-Richard-fudia-atilf.pdf">
-					Extraction des interrogatives de corpus francophones annotés en dépendances universelles</a>,
-					27 mars 2023, lors du Café TAL, Atilf, Nancy
-			</li>
-		</ul>
-	</div>
-</div>
+<script src="jquery.js"></script> 
+	<script> 
+	$(function(){
+	$("#publications").load("Publications/index.html"); 
+	});
+	</script> 
+<div id="publications"></div>
 
 
