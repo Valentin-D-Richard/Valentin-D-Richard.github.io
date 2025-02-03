@@ -71,3 +71,8 @@ for (var i = 0; i < btns.length; i++) {
     this.className += " active";
   });
 }
+
+// Automatic loading of bibtex publication div in Home
+$(function(){
+	$("#publications").load("Publications/index.html"); 
+	});
