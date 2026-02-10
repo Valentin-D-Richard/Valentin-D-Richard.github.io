@@ -98,7 +98,7 @@ h2{
     text-align: center;
     color: #802769;
 }
-#twitter h1 {
+#bluesky h1 {
     text-align: center;
     color: #802769;
 }
@@ -120,6 +120,10 @@ h2{
 #cv{
     text-align: center;
     padding: 5px;
+}
+
+#alert{
+    background-color:#802769;
 }
     
 
